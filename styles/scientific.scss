@@ -1,0 +1,47 @@
+
+
+@mixin sci-shown-r {
+    background-color: #f9b2c3;
+    display: grid;
+    grid-template-rows: 1fr 1.99fr 4fr;
+    border-right: solid 0.1rem;
+    border-bottom: solid 0.1rem;
+    border-top: solid 0.1rem;
+}
+
+@mixin inner-elements {
+
+    .sci-btn-div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        background-color: black;
+        gap: 0.1rem;
+        border-top: 0.1rem solid;
+    }
+
+    h1 {
+        grid-column: 1/-1;
+    }
+
+    #blank {
+        grid-column: 1/-1;
+    }
+
+    #base-btn {
+        grid-column: 1/-1;
+    }
+
+    .sci-btns {
+        @include btn;
+
+        &:hover {
+            background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+            background-color: #030b2c;
+        }
+        
+        &:active {
+            position:relative;
+            top: 0.05rem;
+        }
+    }
+}

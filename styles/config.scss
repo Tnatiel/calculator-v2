@@ -1,0 +1,166 @@
+// **********************VARLIABLES************************
+
+// If bugs ouccor add ':' after 'font-family'
+// Exm. font-family: 'Source Code Pro', monospace;
+
+$font1: font-family 'Alegreya SC', serif;
+$font2: font-family 'Amatic SC', cursive;
+$font3: font-family 'Archivo Narrow', sans-serif;
+$font4: font-family 'Concert One', cursive;
+$font5: font-family 'Source Code Pro', monospace;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  
+  .mode {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+  }
+  
+  select {
+    border: solid 0.2vh;
+    border-color: rgba(0, 0, 0, 0.329);
+    border-radius: 1.5vh;
+    height: 4.5vh;
+  }
+
+//   mode toggle
+  
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 4rem;
+    height: 2rem;
+  }
+  
+  .slider {
+    border-radius: 50%;
+  }
+  
+  .slider:before {
+    border-radius: 50%;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: -0.2rem;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 3rem;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 1.5rem;
+    width: 1.5rem;
+    left: 0.3rem;
+    bottom: 0.3rem;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(2rem);
+    -ms-transform: translateX(2rem);
+    transform: translateX(2rem);
+  }
+
+//   
+  .main-sec {
+    display: grid;
+    grid-template-rows: 0.5fr 1fr;
+    align-items: center;
+    width: fit-content;
+    position: relative;
+    padding: 3rem;
+  }
+  
+  .labels {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    font-size: 3vh;
+  }
+  
+  .selects {
+    grid-column: 2/auto;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  
+#header {
+    grid-row: 1/2;
+    grid-column: 1/-1;
+}
+
+.mode {
+    align-items: center;
+    grid-column: 1/-1;
+}
+
+input[type='submit'] {
+    display: none;
+}
+
+input[type='checkbox'] {
+    position: relative;
+    left: 1rem
+}
+
+.sub-btn {
+	background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+	background-color:#f9f9f9;
+	border-radius:1rem;
+	border:0.001rem solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#353434;
+	font-family:Arial;
+	font-size:1rem;
+	font-weight:bold;
+	padding:0.6rem 1.4rem;
+	text-decoration:none;
+
+    &:hover {
+        background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+        background-color:#e9e9e9;
+    }
+    &:active {
+	position:relative;
+	top:1px;
+}
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: lightcyan;
+}
+
+#config-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2vh;
+}

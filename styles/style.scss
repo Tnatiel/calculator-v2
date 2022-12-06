@@ -1,0 +1,345 @@
+@import 'history';
+@import 'scientific';
+@import 'media-queries';
+// **********************variables:********************
+
+$prim-color: #e0e7ff;
+$ops-color: #c7d2fe;
+$eq-color: #d9afe8;
+$font-color: #232020;
+
+// dark mode colors 
+$d-prim-color:  #971a4e;
+$d-ops-color: #711c3f;
+$d-eq-color: #3c5b82;
+$d-font-color: #c7c4c4;
+
+
+
+// **********************MIXINS********************
+
+@mixin btn {
+    display:inline-block;
+	cursor:pointer;
+	color:$font-color;
+	font-size: 1.5rem;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow: 0 0.001rem 0 #766a6a;
+    &:active {
+        position:relative;
+	    top: 0.05rem;
+    }
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    
+}
+
+// IMG CONTROLS
+svg path{
+    fill: $font-color;
+  }
+
+
+.control-imgs {
+    height: 4vh;
+    padding: 0.5rem 0 0;
+    width: 2.5vw;
+}
+
+// HEADER
+#cal-header {
+    background-color: $ops-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+h1 {
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5vw;
+    padding: 0.5rem 0;
+}
+
+.second-heading {
+    border-bottom: solid 0.1rem;
+}
+
+
+
+// SCREEN
+
+#screen {
+    background-color: #f6f6f6;
+    display: flex;
+    align-items: flex-end;
+    padding-left: 1vw;
+    font-size: 2vw;
+}
+
+#screen.light-on-screen {
+    background-color: #cef7c9;
+}
+
+
+.wider {
+    grid-column: 2/ -2;
+}
+
+.info-page-shown {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    grid-column: 2/-2;
+    grid-row: 1/-1;
+    background-color: rgba(129, 249, 237, 0.96);
+    position: absolute;
+    
+    width: 70%;
+    gap: 5vh;
+    padding: 10vw 6vw;
+    
+
+    .info-wraper {
+        border: dashed;
+        width: fit-content;
+        padding: 2rem;
+        font-size: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 2vh;
+    }
+
+    button {
+        align-self: center;
+        @include btn;
+        padding: 2vh 5vw;
+        border-radius: 1rem;
+    }
+}
+
+button.btn-num {
+    @include btn;
+    &:hover{
+        background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+        background-color: #030b2c;
+    }
+}
+
+
+
+#main-c {
+    background-color: black;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-column: 2/-2;
+    gap: 0.1rem;
+    border: solid 0.1rem;
+    
+    
+    .btns {
+        
+    }
+
+    & .btn-control, .opers {
+        
+        background-color: $ops-color;
+        font-size: 2rem;
+        &:hover {
+            background: linear-gradient(to bottom, #a8b5f4 5%, #cbc3f3 100%);
+            background-color: #c2cdf7;
+        }
+        @include btn;
+    }
+
+    & button.light-on-btn {
+        background-color: #f4ac28;
+        @include btn;
+        &:hover {
+            background: linear-gradient(to bottom, #ffca67 5%, #e6b967 100%);
+            background-color: #c2cdf7;
+        }
+    }
+
+
+    & .fake-btn {
+        background-color: $ops-color;
+    }
+
+    // EQUAL BUTTON
+
+    & button[id='='] {
+        @include btn;
+        background-color: $eq-color;
+        &:hover {
+        background:linear-gradient(to bottom, #f3d3ff 5%, #e59dfff6 100%);
+        background-color:#5b4d55;
+        }
+    }
+    
+}
+
+
+// HISROTY
+
+// #history-sec {
+//     @include history-sec
+
+// }
+
+.history-hidden-r {
+    display: none;
+}
+
+.history-shown-r {
+    @include history-shown-r
+}
+
+// SCIENCE
+
+.sci-hidden-r {
+    display: none;
+}
+
+.sci-shown-r {
+    @include sci-shown-r
+}
+
+#scientific-sec {
+    @include inner-elements
+}
+
+// main wrappers
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#wrap {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    position: relative;
+    top: 2rem;
+    width: 90%;
+    height: 90vh;
+
+}
+
+@media screen  and (width < 914px) {
+    @include ipad-air;
+}
+
+@media screen and (width < 450px) { 
+    @include iphone-se;
+}
+
+
+
+// DARK MODE
+
+
+.dark-body {
+
+    color: $d-font-color;   
+    #wrap #scientific-sec  {
+        background-color: rgb(0 19 72);
+
+        // .sci-btns {
+        //     border-top: solid 0.1rem rgb(171, 170, 170);
+        // }
+
+        // #sqrt, #sqrt-y, #pie {
+        //     border-left: solid 0.1rem;
+        //     border-color: rgb(171, 170, 170);
+        // }
+    }
+    
+    #history-sec {
+        background-color: rgb(0 71 47);
+    }
+
+
+    // IMG CONTROLS
+    svg path{
+        fill: $d-font-color;
+    }
+
+    // HEADER
+    #cal-header {
+        background-color: $d-ops-color;
+        // color: $d-font-color;
+    }
+
+    .wider h3{
+        color: $d-font-color;
+    }
+
+    // SCREEN
+    #screen {
+        background-color: #181e18;
+        color: $d-font-color;
+    }   
+    
+    #screen.light-on-screen {
+        background-color: #294d20dd;
+    }
+
+    #main-c {
+        background-color: rgb(171, 170, 170);
+
+        // BUTTONS
+
+        button.btn-num {
+            background-color: $d-prim-color;
+            color: $d-font-color;
+
+            &:hover{
+                background: linear-gradient(to bottom, #8b2851 5%, #6d4456 100%);
+                background-color: #030b2c;
+            }
+        }
+    
+        & .btn-control, .opers {
+            background-color: $d-ops-color;
+            color: $d-font-color;
+
+            
+            &:hover {
+                background: linear-gradient(to bottom, #4f0826 5%, #b12f65 100%);
+                background-color: #c2cdf7;
+            }
+        }
+
+        & button.light-on-btn {
+            background-color: #f4ac28;
+            &:hover {
+                background: linear-gradient(to bottom, #ffca67 5%, #e6b967 100%);
+                background-color: #c2cdf7;
+            }
+        }
+
+        & .fake-btn {
+            background-color: $d-ops-color;
+        }
+
+        // EQUAL BUTTON
+
+        & button[id='='] {
+            background-color: $d-eq-color;
+            &:hover {
+            background:linear-gradient(to bottom, #1e406a 5%, #376399 100%);
+            background-color:#5b4d55;
+            }
+        }
+    }
+}

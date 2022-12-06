@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure</title>
+    <link rel="stylesheet" href="/styles/config.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC&family=Amatic+SC:wght@700&family=Archivo+Narrow:wght@500&family=Concert+One&family=Source+Code+Pro&display=swap" rel="stylesheet">
+</head>
+    <body id="body">
+        <main>
+            <section class="main-sec">
+                <!-- TRY BULID -->
+
+                <h1 id="header">Customize the page as you please</h1>
+                <form name="myf" id="config-form">
+                    <div class="labels color">
+                        <label for="color-select">Please select a color:</label>
+                        <select name="color" id="color-select">    
+                            <option value="">--Choose a color--</option>
+                            <option value="#e61e1eed">Red</option>
+                            <option value="#00380091">Green</option>
+                            <option value="rgb(154 235 255 / 76%)">Blue</option>
+                            <option value="#f6ff9eab">Yellow</option>
+                            <option value="#845899d1">Purple</option>
+                        </select>
+                    </div>
+
+                    <div class="labels font">
+                        <label for="font-select">Please select a font:</label>
+                        <select name="font" id="font-select">
+                            
+                            <option value="">--Choose a font--</option>
+                            <option value="Alegreya SC, serif">Alegreya SC</option>
+                            <option value="Archivo Narrow, sans-serif">Archivo Narrow</option>
+                            <option value="Concert One, cursive">Concert One</option>
+                            <option value="Source Code Pro, monospace">Source Code Pro</option>
+                            <option value="Sedgwick Ave, cursive">Sedgwick Ave</option>
+                        </select>
+                    </div>
+                    <div class="mode">
+                        <!-- DARK -->
+                        <label class="labels" for="mode">Dark mode:</label>
+                        <input type="radio" value="dark" name="mode" id="dark">
+                        
+                        <!-- LIGHT -->
+                        <label class="labels" for="mode">Light mode:</label>
+                        <input type="radio" value="light" name="mode" id="light">
+                        <button id="sub" class="sub-btn"><input type="submit">Submit</button>
+                    </div>  
+                </form>
+            </section>
+        </main>
+        <script type="module"> // tried to export as part of application.ts
+        // import {init, handleSelect, subBtn} from './ts/application1.js';
+        // init();
+        // subBtn();
+            document.addEventListener('DOMContentLoaded', () => {
+                localStorage.clear()
+                document.getElementById('color-select').addEventListener('input', handle_select);
+                document.getElementById('font-select').addEventListener('input', handle_select);         
+                const ops = document.getElementsByName('mode');
+                for (const op of ops) {
+                    op.addEventListener('change', handle_select);
+                }
+            })
+
+            function handle_select(ev) {
+                let select = ev.target;
+                localStorage.setItem(select.name, select.value)
+                console.log(document.getElementById('body'))
+            }
+            
+            
+            document.getElementById('sub').addEventListener('click', (evt) => {
+                evt.preventDefault()
+                curPage: Window = window
+                
+            })
+            
+        </script>
+    </body>
+</html>

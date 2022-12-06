@@ -1,0 +1,121 @@
+// **********************variables:********************
+$d-prim-color:  #971a4e;
+$d-ops-color: #711c3f;
+$d-eq-color: #3c5b82;
+$d-font-color: #c7c4c4;
+// **********************MIXINS********************
+@mixin btn {
+    display:inline-block;
+	cursor:pointer;
+	color:$font-color;
+	font-family:Arial;
+	font-size: 2rem;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow: 0 0.001rem 0 #bda3a3;
+    &:active {
+        position:relative;
+	    top: 0.05rem;
+    }
+}
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    
+}
+
+// IMG CONTROLS
+
+svg path{
+    fill:#c7c4c4;
+  }
+
+.control-imgs {
+    width: 4vw;
+    height: 5vh;
+}
+
+// HEADER
+
+#cal-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    color: $font-color;  
+}
+
+
+h3.wider {
+    font-size: 5vw;
+    color: $font-color;
+}
+
+// SCREEN
+
+#screen {
+    background-color: #3a5137;
+}
+
+// BUTTONS
+
+.wider {
+    grid-column: 2/ -2;
+}
+
+button.btn-num {
+
+    @include btn;
+    background-color: #a93465;
+
+    &:hover{
+        background: linear-gradient(to bottom, #8b2851 5%, #6d4456 100%);
+        background-color: #030b2c;
+    }
+}
+
+#main-c {
+    background-color: rgb(237, 232, 239);
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    gap: 0.1rem;
+    border: solid 0.1em white;
+    height: 75vh;
+    width: 75vw;
+    position: relative;
+    left: 12vw;
+    top: 7vh;
+
+    & .btn-control, .opers {
+        background-color: $d-ops-color;
+        font-size: 2rem;
+        @include btn;
+        
+        &:hover {
+            background: linear-gradient(to bottom, #4f0826 5%, #b12f65 100%);
+            background-color: #c2cdf7;
+            }
+
+        }
+
+    // EQUAL BUTTON
+
+    & button[id='='] {
+        @include btn;
+        background-color: $d-eq-color;
+        &:hover {
+        background:linear-gradient(to bottom, #1e406a 5%, #376399 100%);
+        background-color:#5b4d55;
+        }
+    }
+}
+
+    
+.fake-btn {
+    background-color: $d-ops-color;
+}
+
+
+ 
