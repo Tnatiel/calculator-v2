@@ -4,27 +4,28 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-      "test": "echo \"Error: no test specified\" && exit 1",
-      "build-ts": "tsc ts/*.ts js/"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "build-ts": "tsc ts/*.ts js/"
     },
     "author": "",
     "license": "ISC",
     "devDependencies": {
-      "@types/node": "^18.11.9",
-      "live-server": "^1.1.0",
-      "typescript": "^4.9.3"
+        "@types/node": "^18.11.9",
+        "live-server": "^1.1.0",
+        "sass": "^1.56.2",
+        "typescript": "^4.9.3"
     },
     "compilerOptions": {
-      "removeComments": true,
-      "target": "ES2020",
-      "lib": [
-        "DOM",
-        "ES2021"
-      ],
-      "watch": true,
-      "skipLibCheck": true,
-      "include":[
-        "./folder"
-      ]
+        "removeComments": true,
+        "target": "ES2020",
+        "lib": [
+            "DOM",
+            "ES2021"
+        ],
+        "watch": true,
+        "skipLibCheck": true,
+        "include": [
+            "./folder"
+        ]
     }
-  }
+}
