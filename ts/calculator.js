@@ -159,14 +159,14 @@ var Calculator111 = /** @class */ (function () {
             }
         }
         else if (this.scietificModeState === true) {
-            // console.log(`this: ${cal} act1: ${this.action1} act2: ${this.action2}`);
-            if (cal.action1 === '') {
-                cal.action1 = oper;
-                cal.updateScreen(oper);
+            // console.log(`this: ${this} act1: ${this.action1} act2: ${this.action2}`);
+            if (this.action1 === '') {
+                this.action1 = oper;
+                this.updateScreen(oper);
             }
-            else if (cal.action2 === '') {
-                cal.action2 = oper;
-                cal.updateScreen(oper);
+            else if (this.action2 === '') {
+                this.action2 = oper;
+                this.updateScreen(oper);
             }
             if (this.firstOperand !== '' && this.secondOperand !== '' && this.thirdOperand !== '') {
                 this.calculate();
@@ -266,10 +266,10 @@ var Calculator111 = /** @class */ (function () {
         });
     };
     Calculator111.prototype.clearData = function () {
-        cal.firstOperand = '';
-        cal.secondOperand = '';
-        cal.action1 = '';
-        cal.lastCalculated = 0;
+        this.firstOperand = '';
+        this.secondOperand = '';
+        this.action1 = '';
+        this.lastCalculated = 0;
         byId('screen').innerHTML = '';
         if (this.scietificModeState === true) {
             this.action2 = '';
